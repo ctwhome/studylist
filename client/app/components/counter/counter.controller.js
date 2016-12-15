@@ -26,9 +26,13 @@ class CounterController {
   toggleTime() {
     this.counting = !this.counting;
 
+    this.toggleIcon();
+    this.counting ? this.countdown(this.counter) : this.pause();
+  }
+
+  toggleIcon () {
     this.icon = this.counting ? "pause" : "play_arrow";
     this.iconColor = this.counting ? {fill: '#d84315'} : {fill: 'orange'};
-    this.counting ? this.countdown(this.counter) : this.pause();
   }
 
   pause() {
@@ -48,7 +52,8 @@ class CounterController {
 
   reset() {
     if (angular.isDefined(this.interval)) {
-      this.interval.cancel(this.interval)
+      this.$interval.cancel(this.interval)
+      this.toggleTime();
     }
     this.counter = this.DEFAULT_COUNTER;
   }
