@@ -1,0 +1,16 @@
+<div layout flex>
+
+  <div class="seconds">{{$ctrl.counter | secondsToDateTime | date:'mm:ss'}}</div>
+
+  <div layout="column">
+    <md-button class="md-icon-button" ng-click="$ctrl.toggleTime()">
+      <ng-md-icon icon="{{$ctrl.icon}}" ng-style="$ctrl.iconColor"></ng-md-icon>
+    </md-button>
+  </div>
+
+  <md-button class="md-icon-button"
+             ng-click="$ctrl.reset()">
+    <ng-md-icon icon="replay" style="fill: #757575"></ng-md-icon>
+  </md-button>
+
+</div>

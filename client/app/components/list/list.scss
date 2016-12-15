@@ -1,0 +1,12 @@
+list {
+    .handle{
+        background: #dad9e0;
+        cursor: hand;
+    }
+    md-list-item {
+
+        &:hover {
+            background: #f0f0f0;
+        }
+    }
+}

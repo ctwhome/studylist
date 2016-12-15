@@ -1,0 +1,31 @@
+<md-toolbar role="toolbar" flex="none">
+  <div class="md-toolbar-tools">
+    <h4 class="md-title" flex>StudyList</h4>
+    <div class="time">
+      {{$ctrl.moment}}
+    </div>
+    <md-button class="md-icon-button" href="https://wantoo.io/pomolist/ideas/" target="_blank"
+               layout-fill md-ink-ripple>
+      <ng-md-icon icon="sentiment_satisfied" style="fill: #414141"></ng-md-icon>
+      <md-tooltip>Feedback
+        <ng-md-icon icon="favorite_border" style="fill: #ffffff"></ng-md-icon>
+      </md-tooltip>
+    </md-button>
+    <md-menu md-position-mode="target-right target" >
+      <md-button class="md-icon-button" aria-label="" ng-click="$mdOpenMenu($event)">
+        <img src="{{$ctrl.user.picture}}" width="32" alt="">
+        <!--<md-icon>{{menu.icon}}</md-icon>-->
+      </md-button>
+      <md-menu-content width=4>
+        <md-subheader>{{$ctrl.user.name}}</md-subheader>
+        <md-menu-item layout>
+          <md-button layout layout-align="center center" layout-fill md-ink-ripple ng-click="">
+            <ng-md-icon icon="logout" style="fill: #414141"></ng-md-icon>
+            Log out
+          </md-button>
+        </md-menu-item>
+
+      </md-menu-content>
+    </md-menu>
+  </div>
+</md-toolbar>

@@ -1,0 +1,65 @@
+<navbar layout="column" flex-none></navbar>
+<div layout="column" flex class="md-padding">
+  <div layout layout-align="center center" flex="none" class="main-list">
+    <md-select ng-model="$ctrl.activeList">
+      <md-option ng-repeat="list in $ctrl.user.lists" value="{{list.name}}">
+        {{list.name}}
+      </md-option>
+    </md-select>
+    <md-button class="md-raised">
+      new list
+    </md-button>
+    <div flex></div>
+    <md-button class="md-icon-button" ng-click="">
+      <ng-md-icon icon="play_arrow" style="fill: #595959"></ng-md-icon>
+    </md-button>
+    <md-button class="md-icon-button"
+               ng-click="">
+      <ng-md-icon icon="replay" style="fill: #595959"></ng-md-icon>
+    </md-button>
+    <div class="time">
+      1h 40m
+    </div>
+  </div>
+
+  <md-content layout="column" class="md-whiteframe-z2 main-list" flex>
+
+    <div layout="column" class="list"
+         as-sortable ng-model="$ctrl.list">
+      <div layout flex="none"
+           class="row-list"
+           ng-repeat="row in $ctrl.list"
+           as-sortable-item>
+
+        <div class="handle" layout layout-align="center center" as-sortable-item-handle>
+          <ng-md-icon icon="more_vert" style="fill: #717077"></ng-md-icon>
+        </div>
+
+        <div layout layout-xs="column" flex>
+          <counter></counter>
+
+          <div layout="column" flex>
+            <md-input-container>
+              <input class="md-body-2" ng-model="row.name" />
+            </md-input-container>
+            <md-input-container>
+              <textarea class="md-caption" ng-model="row.desc" rows="1"></textarea>
+            </md-input-container>
+          </div>
+        </div>
+        <div layout layout-align="center center">
+          <md-button class="md-icon-button"
+                     ng-click="$ctrl.delete($index)">
+            <ng-md-icon icon="clear" style="fill: #757575"></ng-md-icon>
+          </md-button>
+        </div>
+      </div>
+
+    </div>
+  </md-content>
+
+</div>
+
+<md-button ng-click="$ctrl.addDialog()" class="md-fab md-primary" aria-label="Add timer">
+  <ng-md-icon icon="add" style="fill: #ffffff"></ng-md-icon>
+</md-button>

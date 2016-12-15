@@ -1,0 +1,32 @@
+<md-dialog aria-label="Mango (Fruit)">
+  <form ng-cloak>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Add task</h2>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content layout="column" layout-padding layout-margin>
+
+      <md-input-container>
+
+        <label>Task name</label>
+        <textarea ng-model="task.name"></textarea>
+      </md-input-container>
+      <md-input-container>
+        <label>Time</label>
+        <input ng-model="task.time">
+      </md-input-container>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+      <span flex></span>
+      <md-button ng-click="$ctrl.cancel()">
+        Cancel
+      </md-button>
+      <md-button class="md-primary" ng-click="$ctrl.add(task)">
+        Add
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

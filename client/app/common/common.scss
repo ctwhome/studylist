@@ -1,0 +1,40 @@
+
+$primaryColor:   #F57C00;
+$accentColor:    #1de9b6;
+$bgColor:        #efefef;
+$darkBgColor:    #f5f5f5;
+$lightBgColor:   #37474f;
+$lightTextColor: #f5f5f5;
+$darkTextColor:  #212121;
+
+body {
+   // browsers default to 16px for font-size,
+   // so setting top-level font-size to 62.5%
+   // scales 1rem to equal 10px.
+    background: #f1f1f1;
+}
+
+
+
+
+md-content{
+    background: transparent;
+}
+.md-whiteframe-z2{
+    background: white;
+}
+.md-fab{
+    position: absolute !important;
+    bottom: 8px;
+    right: 8px;
+    ng-md-icon svg{
+        margin-top: 15px;
+        width: 26px;
+        height: 26px;
+    }
+}
+
+// Disable the resize of the textarea with touch-events
+.md-resize-handle{
+    touch-action: none;
+}
