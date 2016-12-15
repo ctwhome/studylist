@@ -73,10 +73,10 @@ class HomeController {
 
     this.list = [
       {name: "task 1", desc:"A kind of a long desctription", time: 600},
-      // {name: "task 2", desc:"A kind of a long desctription", time: 600},
-      // {name: "task 3", desc:"A kind of a long desctription", time: 600},
-      // {name: "task 4", desc:"A kind of a long desctription", time: 600},
-      // {name: "task 5", desc:"A kind of a long desctription", time: 600}
+      {name: "task 2", desc:"A kind of a long desctription", time: 600},
+      {name: "task 3", desc:"A kind of a long desctription", time: 600},
+      {name: "task 4", desc:"A kind of a long desctription", time: 600},
+      {name: "task 5", desc:"A kind of a long desctription", time: 600}
     ]
   }
 
