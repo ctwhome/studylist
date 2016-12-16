@@ -1,16 +1,23 @@
-<div layout flex>
+<div layout flex ng-click="$ctrl.updateCurParent($event)">
+    <div class="input-counter">
+        <span class="input-digit digit-1 input-digit--m" tabindex="0">0</span>
+        <span class="input-digit digit-2 input-digit--m" tabindex="0">0</span>
+        <span class="input-m">m</span>
+        <span class="input-digit digit-3 input-digit--s" tabindex="0">0</span>
+        <span class="input-digit digit-4 input-digit--s border" tabindex="0">0</span>
+        <span class="input-s" style="padding-right:0px">s</span>
+        <input class="input" ng-blur="$ctrl.hideInput()" placeholder="{{$ctrl.inputText}}" pattern="\d*" type="tel"></input>
+    </div>
 
-  <div class="seconds">{{$ctrl.counter | secondsToDateTime | date:'mm:ss'}}</div>
+    <div class="seconds visible" ng-click="$ctrl.showInput()" ng-focus="$ctrl.pause()" ng-model="$ctrl.counter">{{$ctrl.counter}}</div>
+    <div layout="column">
+        <md-button class="md-icon-button" ng-click="$ctrl.toggleTime($event)">
+            <ng-md-icon icon="{{$ctrl.icon}}" ng-style="$ctrl.iconColor"></ng-md-icon>
+        </md-button>
+    </div>
 
-  <div layout="column">
-    <md-button class="md-icon-button" ng-click="$ctrl.toggleTime()">
-      <ng-md-icon icon="{{$ctrl.icon}}" ng-style="$ctrl.iconColor"></ng-md-icon>
+    <md-button class="md-icon-button" ng-click="$ctrl.reset()">
+        <ng-md-icon icon="replay" style="fill: #757575"></ng-md-icon>
     </md-button>
-  </div>
-
-  <md-button class="md-icon-button"
-             ng-click="$ctrl.reset()">
-    <ng-md-icon icon="replay" style="fill: #757575"></ng-md-icon>
-  </md-button>
 
 </div>
