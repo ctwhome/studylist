@@ -4,7 +4,9 @@ import './list.scss';
 
 let listComponent = {
   restrict: 'E',
-  bindings: {},
+  bindings: {
+    list: "<"
+  },
   template,
   controller
 };

@@ -3,22 +3,12 @@ import AddDialogController from './add-dialog.controller';
 
 class HomeController {
 
-  constructor($mdDialog) {
+  constructor($mdDialog, User) {
     "ngInject";
-
+    this.User = User;
     this.mdDialog = $mdDialog;
-
   }
-
   $onInit() {
-
-    this.name = 'home';
-
-    this.items = [
-      'jols1', 'hola2', 'hola32', 'anthoress'
-
-    ]
-
     this.config = {
       animation: 150,
       onSort: function (event) {
@@ -26,69 +16,17 @@ class HomeController {
       }
     };
 
-
-    //TODO MOVE THIS TO THE SERVICE
-    this.user =
-      {
-        name: 'Jesus Garcia',
-        mail: 'ctw@ctwhome.com',
-        picture: '//icons.iconarchive.com/icons/graphicloads/flat-finance/256/person-icon.png',
-        lists: [
-          {
-            id:0,
-            name: "Study",
-            timers: [
-              {name: "task 1", desc: "A kind of a long desctription", time: 600},
-              {name: "task 2", desc: "A kind of a long desctription", time: 200},
-              {name: "task 3", desc: "A kind of a long desctription", time: 300},
-              {name: "task 4", desc: "A kind of a long desctription", time: 300},
-              {name: "task 5", desc: "A kind of a long desctription", time: 400}
-            ]
-          },
-
-          {
-            id:1,
-            name: "Piano",
-            timers: [
-              {name: "Scales", desc: "A kind of a long desctription", time: 200},
-              {name: "Technique", desc: "A kind of a long desctription", time: 300},
-              {name: "Song", desc: "A kind of a long desctription", time: 300},
-            ]
-          },
-          {
-            id:2,
-            name: "Language",
-            timers: [
-              {name: "Vocabulary", desc: "A kind of a long desctription", time: 600},
-              {name: "Grammatica", desc: "A kind of a long desctription", time: 300},
-              {name: "Reading", desc: "A kind of a long desctription", time: 300},
-              {name: "Listening", desc: "A kind of a long desctription", time: 300}
-            ]
-          }
-
-        ],
-        jsonlist: {
-          0: [
-            {name: "task 1", desc: "A kind of a long desctription", time: 600},
-            {name: "task 2", desc: "A kind of a long desctription", time: 200},
-            {name: "task 3", desc: "A kind of a long desctription", time: 300},
-            {name: "task 4", desc: "A kind of a long desctription", time: 300},
-            {name: "task 5", desc: "A kind of a long desctription", time: 400}
-          ],
-          1: [
-            {name: "task 1", desc: "A kind of a long desctription", time: 600},
-            {name: "task 2", desc: "A kind of a long desctription", time: 200},
-            {name: "task 3", desc: "A kind of a long desctription", time: 300},
-            {name: "task 4", desc: "A kind of a long desctription", time: 300},
-            {name: "task 5", desc: "A kind of a long desctription", time: 400}
-          ]
-
-        }
-      };
-
-
+    this.user = this.User.getUser();
     this.activeList = this.user.lists[0].name;
+    this.getElementsListSelected()
+  }
 
+  /**
+   * Return the elements of the selected list
+   * @param list
+   */
+  getElementsListSelected(){
+   this.list = this.user["lists"].filter((v)=>{ return v.name == this.activeList; })[0].timers
   }
 
   delete(index) {
@@ -117,10 +55,6 @@ class HomeController {
       });
 
   }
-
-
 }
 
-export
-default
-HomeController;
+export default HomeController;
