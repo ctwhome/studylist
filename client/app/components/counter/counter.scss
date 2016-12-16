@@ -36,10 +36,15 @@ counter {
             color: #ABABAB;
             font-size: 2.5rem;
             outline: none;
+            transition: all 0.3s ease;
         }
 
         .border {
             border-right: 1px solid #434343;
+        }
+
+        .input-m, .input-s {
+            margin: 0 0.3rem;
         }
     }
 }

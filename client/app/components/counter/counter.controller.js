@@ -5,7 +5,7 @@ class CounterController {
 
     this.$interval = $interval;
     this.DEFAULT_COUNTER = 600
-    this.digitCounter = 1;
+    this.digitCounter = 4;
     this.$curParent = null;
   }
 
@@ -103,21 +103,21 @@ class CounterController {
     if (!isNaN(parseFloat(e.key)) && isFinite(e.key) && this.digitCanBePlaced(e.key)) { // If key is a number
 
       this.$curParent.querySelector(`.digit-${this.digitCounter}`).innerHTML = e.key;
-      this.digitCounter++;
+      this.digitCounter--;
 
-      if (this.digitCounter > 4) this.digitCounter = 1;
+      if (this.digitCounter < 1) this.digitCounter = 4;
 
-      this.$curParent.querySelector(`.digit-${this.getPrevDigit()}`).style.color = '#ABABAB';
+      this.$curParent.querySelector(`.digit-${this.getNextDigit()}`).style.color = '#ABABAB';
       this.$curParent.querySelector(`.digit-${this.digitCounter}`).style.color = '#434343';
 
     }else if (e.keyCode === 13) { // Enter keyCode
-      this.$curParent.querySelector(`.digit-${this.getPrevDigit()}`).style.color = '#ABABAB';
+      this.$curParent.querySelector(`.digit-${this.getNextDigit()}`).style.color = '#ABABAB';
       this.hideInput()
     }
   }
 
-  getPrevDigit () {
-    return this.digitCounter === 1 ? 4 : this.digitCounter - 1;
+  getNextDigit () {
+    return this.digitCounter === 4 ? 1 : this.digitCounter + 1;
   }
 
   digitCanBePlaced (key) {
