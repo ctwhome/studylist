@@ -1,12 +1,12 @@
 import moment from 'moment';
 class NavbarController {
-  constructor() {
+  constructor($timeout) {
+    'ngInject';
     this.name = 'navbar';
+    this.$timeout = $timeout;
   }
 
   $onInit(){
-    this.moment = moment().format('dddd HH:mm');
-
     this.updateDate();
 
     this.user =
@@ -50,8 +50,10 @@ class NavbarController {
   }
 
   updateDate () {
-    setTimeout(() => {
-      this.moment = moment().format('dddd HH:mm');
+
+    this.moment = moment().format('dddd HH:mm');
+
+    this.$timeout( () => {
       this.updateDate();
     }, 60000);
   }
