@@ -1,10 +1,10 @@
 class CounterController {
 
   constructor($interval) {
-    'ngInject'
+    'ngInject';
 
     this.$interval = $interval;
-    this.DEFAULT_COUNTER = 600
+    this.DEFAULT_COUNTER = 600;
     this.digitCounter = 4;
     this.$curParent = null;
   }
@@ -18,7 +18,7 @@ class CounterController {
       this.handleKeyUp(e);
     };
 
-    this.icon = "play_arrow"
+    this.icon = "play_arrow";
     this.counting = false;
     this.iconColor = {fill: 'orange'};
   }
@@ -78,7 +78,7 @@ class CounterController {
   playAudio () {
 
     // buffers automatically when created
-    let snd = new Audio('assets/guitar.wav');
+    let snd = new Audio('/assets/guitar.wav');
     snd.play();
   }
 
@@ -112,7 +112,7 @@ class CounterController {
 
     }else if (e.keyCode === 13) { // Enter keyCode
       this.$curParent.querySelector(`.digit-${this.getNextDigit()}`).style.color = '#ABABAB';
-      this.hideInput()
+      this.hideInput();
     }
   }
 
