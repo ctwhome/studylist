@@ -53,7 +53,7 @@ class NavbarController {
     setTimeout(() => {
       this.moment = moment().format('dddd HH:mm');
       this.updateDate();
-    }, 1000);
+    }, 60000);
   }
 
 }
