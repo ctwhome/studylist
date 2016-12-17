@@ -3,9 +3,11 @@ class NavbarController {
   constructor() {
     this.name = 'navbar';
   }
+
   $onInit(){
     this.moment = moment().format('dddd HH:mm');
 
+    this.updateDate();
 
     this.user =
       {
@@ -45,8 +47,15 @@ class NavbarController {
           }
         ]
       };
-
   }
+
+  updateDate () {
+    setTimeout(() => {
+      this.moment = moment().format('dddd HH:mm');
+      this.updateDate();
+    }, 1000);
+  }
+
 }
 
 export default NavbarController;
